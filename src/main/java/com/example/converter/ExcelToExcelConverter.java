@@ -11,14 +11,14 @@ import javafx.stage.Stage;
 
 public class ExcelToExcelConverter {
 
-    public static void convertToExcel(List<File> files, List<String> expectedHeaders, Stage stage) {
+    public static File convertToExcel(List<File> files, List<String> expectedHeaders, Stage stage) {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Выберите папку для сохранения");
         File outputDirectory = directoryChooser.showDialog(stage);
 
         if (outputDirectory == null) {
             Controller.showAlert("Папка для сохранения не выбрана!");
-            return;
+            return null;
         }
 
         File outputFile = new File(outputDirectory, "output.xlsx");
@@ -86,6 +86,7 @@ public class ExcelToExcelConverter {
             e.printStackTrace();
             Controller.showAlert("Ошибка при конвертации в Excel: " + e.getMessage());
         }
+        return outputFile;
     }
 
     private static boolean validateColumns(Sheet sheet, List<String> expectedHeaders) {

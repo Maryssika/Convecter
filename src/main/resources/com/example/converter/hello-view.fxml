@@ -8,43 +8,54 @@
     <padding>
         <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
-   <HBox>
-      <children>
-          <Button onAction="#handleSelectFolderButtonAction" style="-fx-background-color: Lavender; -fx-background-radius: 15;" text="Выбор папки">
-            <HBox.margin>
-               <Insets left="160.0" />
-            </HBox.margin>
-         </Button>
-      
-          <Button onAction="#handleSelectFilesButtonAction" style="-fx-background-color: Lavender; -fx-background-radius: 15;" text="Выбор файла">
-            <opaqueInsets>
-               <Insets left="10.0" />
-            </opaqueInsets>
-            <HBox.margin>
-               <Insets left="30.0" />
-            </HBox.margin>
-         </Button>
-      </children>
-   </HBox>
+    <HBox>
+        <children>
+            <Button onAction="#handleSelectFolderButtonAction" style="-fx-background-color: Lavender; -fx-background-radius: 15;" text="Выбор папки">
+                <HBox.margin>
+                    <Insets left="160.0" />
+                </HBox.margin>
+            </Button>
+
+            <Button onAction="#handleSelectFilesButtonAction" style="-fx-background-color: Lavender; -fx-background-radius: 15;" text="Выбор файла">
+                <opaqueInsets>
+                    <Insets left="10.0" />
+                </opaqueInsets>
+                <HBox.margin>
+                    <Insets left="30.0" />
+                </HBox.margin>
+            </Button>
+        </children>
+    </HBox>
 
     <HBox alignment="CENTER" spacing="5">
         <TextField fx:id="headersField" prefWidth="250" promptText="Заголовки (через запятую)" />
         <Button onAction="#handleSetValidationButtonAction" style="-fx-background-color: Lavender; -fx-background-radius: 15;" text="Установить проверку" />
     </HBox>
-   <HBox>
-      <children>
 
-          <Button onAction="#handleConvertToWordButtonAction" prefWidth="180" style="-fx-background-color: Lavender; -fx-background-radius: 15;" text="Конвертировать в Word">
-              <HBox.margin>
-                  <Insets left="80.0" />
-              </HBox.margin>
-          </Button>
-          <Button onAction="#handleConvertToExcelButtonAction" prefWidth="180" style="-fx-background-color: Lavender; -fx-background-radius: 15;" text="Конвертировать в Excel">
-              <HBox.margin>
-                  <Insets left="20.0" />
-              </HBox.margin>
-          </Button>
-      </children>
-   </HBox>
+    <ListView fx:id="filesListView" prefHeight="150" prefWidth="600">
+        <padding>
+            <Insets bottom="10" left="10" right="10" top="10" />
+        </padding>
+    </ListView>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button onAction="#handleRemoveFileButtonAction" style="-fx-background-color: Lavender; -fx-background-radius: 15;" text="Удалить выбранный" />
+        <Button onAction="#handleReplaceFileButtonAction" style="-fx-background-color: Lavender; -fx-background-radius: 15;" text="Заменить выбранный" />
+    </HBox>
+
+    <HBox>
+        <children>
+            <Button onAction="#handleConvertToWordButtonAction" prefWidth="180" style="-fx-background-color: Lavender; -fx-background-radius: 15;" text="Конвертировать в Word">
+                <HBox.margin>
+                    <Insets left="80.0" />
+                </HBox.margin>
+            </Button>
+            <Button onAction="#handleConvertToExcelButtonAction" prefWidth="180" style="-fx-background-color: Lavender; -fx-background-radius: 15;" text="Конвертировать в Excel">
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+            </Button>
+        </children>
+    </HBox>
     <Label fx:id="statusLabel" text="Готово к работе" />
 </VBox>

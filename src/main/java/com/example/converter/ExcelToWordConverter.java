@@ -14,14 +14,14 @@ import javafx.stage.Stage;
 
 public class ExcelToWordConverter {
 
-    public static void convertToWord(List<File> files, List<String> expectedHeaders, Stage stage) {
+    public static File convertToWord(List<File> files, List<String> expectedHeaders, Stage stage) {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Выберите папку для сохранения");
         File outputDirectory = directoryChooser.showDialog(stage);
 
         if (outputDirectory == null) {
             Controller.showAlert("Папка для сохранения не выбрана!");
-            return;
+            return null;
         }
 
         File outputFile = new File(outputDirectory, "output.docx");
@@ -72,6 +72,7 @@ public class ExcelToWordConverter {
             e.printStackTrace();
             Controller.showAlert("Ошибка при конвертации в Word: " + e.getMessage());
         }
+        return outputFile;
     }
 
     private static void createHeaderRow(XWPFTable table, List<String> headers) {
