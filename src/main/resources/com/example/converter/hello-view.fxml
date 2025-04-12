@@ -28,7 +28,7 @@
     </HBox>
 
     <HBox alignment="CENTER" spacing="5">
-        <TextField fx:id="headersField" prefWidth="250" promptText="Заголовки (через запятую)" />
+        <TextField fx:id="headersField" prefWidth="250" promptText="Заголовки столбцов (через запятую)" />
         <Button onAction="#handleSetValidationButtonAction" style="-fx-background-color: Lavender; -fx-background-radius: 15;" text="Установить проверку" />
     </HBox>
 
